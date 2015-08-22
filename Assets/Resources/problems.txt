@@ -1,0 +1,8 @@
+Name,Red,Green,Blue,Yellow,Description
+Alien Attack,1,10,1,1,"Shoot first, ask questions later."
+Asteroid,1,10,1,1,Big problem. Throw it a big solution.
+Electrical Malfunction,1,1,5,1,Happens all the time. No big deal. Just cram something into it.
+Fire,6,1,1,1,Pretty bad for any spaceship system.
+Hull Breach,1,5,1,1,You might want to fix this one quickly.
+Space Fungus,1,1,1,8,Gross.
+Space Rats,8,1,1,9,They carry space diseases. Do not touch.

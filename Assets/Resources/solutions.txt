@@ -1,0 +1,10 @@
+Name,Red,Green,Blue,Yellow,Description
+Cookies,1,1,1,1,"Yummy, but generally useless. Unless you have enough of them."
+Flamethrower,1,1,1,6,Kills bugs dead.
+Fuel,1,1,1,4,Good for propulsion. Bad for organic matter.
+Furniture,1,6,1,1,Big and heavy. Sometimes that's a good thing.
+Kitten,4,1,5,1,"Cute, cuddly, and conductive."
+People,3,3,4,1,"Have height, weight, and general usefulness."
+Towel,4,1,1,1,Never leave home without it.
+Water,5,1,1,1,Drink plenty of it!
+Wire,8,1,1,1,Copper wire is good for all sorts of electrical problems.
