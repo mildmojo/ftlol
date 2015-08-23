@@ -18,7 +18,9 @@ function Start () {
 }
 
 function Update () {
-
+  if (Input.GetKeyDown(KeyCode.Escape)) {
+    Application.Quit();
+  }
 }
 
 public function DoGame() {

@@ -25,14 +25,13 @@ class GameData {
       // Each column
       // NOTE: grid.GetLength(1) MINUS ONE because it crashed if I indexed the
       //   last column. No idea why.
-      for (var j = 0; j < grid.GetLength(1) - 1; j++) {
+      for (var j = 0; j < grid.GetLength(1) ; j++) {
         if (i == 0 && grid[i, j] != null) {
           // First row is column names
           var name = grid[i, j];
           var lowerName = name.ToLower();
           colNames.push(lowerName);
-          // colNames.Push(grid[i, j].ToLower());
-        } else {
+        } else if (j < colNames.length) {
           row[colNames[j]] = grid[i, j];
         }
       }

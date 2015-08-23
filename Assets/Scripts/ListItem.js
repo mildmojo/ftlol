@@ -5,6 +5,7 @@ import System.Linq;
 import UnityEngine.UI;
 
 var fields = new Dictionary.<String, Text>();
+var parentListBox : ListBox;
 
 function Awake () {
   var texts = GetComponentsInChildren(Text);
@@ -16,12 +17,38 @@ function Awake () {
   }
 }
 
-function Get(key) : String {
+function Get(key : String) : String {
+  key = key.ToLower();
   return fields.ContainsKey(key) ? fields[key].text : null;
 }
 
-function Set(key, value) {
-  if (fields.ContainsKey(key)) {
-    fields[key].text = value;
+function GetAll() : Dictionary.<String, String> {
+  var retval = new Dictionary.<String, String>();
+  for (var pair in fields) {
+    retval[pair.Key.ToLower()] = pair.Value.text;
   }
+  return retval;
+}
+
+function Set(key : String, value) {
+  key = key.ToLower();
+  var strVal = value.ToString();
+  if (fields.ContainsKey(key)) {
+    fields[key].text = strVal;
+  }
+}
+
+public function SetParentListBox(lbox : ListBox) {
+  parentListBox = lbox;
+}
+
+public function Select() {
+  parentListBox.SetSelectedItem(gameObject);
+  GetComponent(Image).fillCenter = true;
+  Debug.Log('Selected!~');
+}
+
+// Called by parent list box when selection changes
+public function Deselect() {
+  GetComponent(Image).fillCenter = false;
 }

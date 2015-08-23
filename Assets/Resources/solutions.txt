@@ -1,5 +1,5 @@
 Name,Quantity,Red,Green,Blue,Yellow,Description,Image Path
-Cookies,1,1,1,1,1,"Some people say that a cookie is useless.  Generally they are right.  Yet, a thousand twigs will overcome even the mightiest of sticks.",cookie
+Cookies,25,1,1,1,1,"Some people say that a cookie is useless.  Generally they are right.  Yet, a thousand twigs will overcome even the mightiest of sticks.",cookie
 Flamethrower,1,1,1,1,6,What more is there to say?,flamethrower
 Fuel,1,1,1,1,4,"Very flamable.  In general, do not ingest.",fuel
 Furniture,1,1,6,1,1,Antique furniture from Earth.,furniture

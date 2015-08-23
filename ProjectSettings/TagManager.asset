@@ -13,8 +13,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - CRT Bezel
+  - ListItem
   - 
   - 
   - 
@@ -40,4 +40,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: ListItem
+    uniqueID: 704486491
+    locked: 0
+  - name: CRT Bezel
+    uniqueID: 125918773
+    locked: 0
+  - name: 
+    uniqueID: 2339304259
     locked: 0
