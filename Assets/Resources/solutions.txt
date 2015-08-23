@@ -1,10 +1,10 @@
-Name,Red,Green,Blue,Yellow,Description
-Cookies,1,1,1,1,"Yummy, but generally useless. Unless you have enough of them."
-Flamethrower,1,1,1,6,Kills bugs dead.
-Fuel,1,1,1,4,Good for propulsion. Bad for organic matter.
-Furniture,1,6,1,1,Big and heavy. Sometimes that's a good thing.
-Kitten,4,1,5,1,"Cute, cuddly, and conductive."
-People,3,3,4,1,"Have height, weight, and general usefulness."
-Towel,4,1,1,1,Never leave home without it.
-Water,5,1,1,1,Drink plenty of it!
-Wire,8,1,1,1,Copper wire is good for all sorts of electrical problems.
+Name,Quantity,Red,Green,Blue,Yellow,Description,Image Path
+Cookies,1,1,1,1,1,"Some people say that a cookie is useless.  Generally they are right.  Yet, a thousand twigs will overcome even the mightiest of sticks.",cookie
+Flamethrower,1,1,1,1,6,What more is there to say?,flamethrower
+Fuel,1,1,1,1,4,"Very flamable.  In general, do not ingest.",fuel
+Furniture,1,1,6,1,1,Antique furniture from Earth.,furniture
+Kitten,1,4,1,5,1,"Cute, cuddly, who could harm the little guy?",kitten
+People,1,3,3,4,1,"These humans are in cryogenic sleep.  Frozen for years, someday to arive at the star system 'Ryan'.  Perhapes the most valuable asset on the...  Aw crap, I broke one!...  Again....",man
+Towel,1,4,1,1,1,Never leave home without it.,towel
+Water,1,5,1,1,1,Moist.  Very moist.,water
+Wire,1,8,1,1,1,"Copper is very pointy, so be carefull not to put your eye out.",wire

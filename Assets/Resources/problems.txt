@@ -1,8 +1,8 @@
-Name,Red,Green,Blue,Yellow,Description
-Alien Attack,1,10,1,1,"Shoot first, ask questions later."
-Asteroid,1,10,1,1,Big problem. Throw it a big solution.
-Electrical Malfunction,1,1,5,1,Happens all the time. No big deal. Just cram something into it.
-Fire,6,1,1,1,Pretty bad for any spaceship system.
-Hull Breach,1,5,1,1,You might want to fix this one quickly.
-Space Fungus,1,1,1,8,Gross.
-Space Rats,8,1,1,9,They carry space diseases. Do not touch.
+Name,Red,Green,Blue,Yellow,Description,Image Path
+Morton Invasion,1,10,1,1,"Egad!  It's a Morton Invasion ship!  Grab some cannons, and fire all we've got!",morton invasion
+Large Rock,1,10,1,1,Great Scotts!  There's a gigantic asteroid coming our way!  Maybe you can break it up by launching something at it...,large rock
+Rabbit Problem,1,1,5,1,Holy Zarquon's Singing Fish!  Someone has been chewing the computer wires!  You've got to complete the electrical circut somehow...  But with what?,rabbit problem
+Stupid Infernal Ship,6,1,1,1,Great Balls of Fire!  Literally.  The entire engine room is on fire!  Now what could you put this out with?..,stupid infernal ship
+Pig of Unusual Size,1,5,1,1,"Great Jehoshaphat!  Our ship flew into a humongous floating pig!  As a result, we have a rather large hole in the side of our ship...  What could we fill the hole with, I wonder?..",pig of unusual size
+Humongous Fungus,1,1,1,8,Criminy!  Some poisonous spores have gotton into the air!  And I hate mushrooms!,humongous fungus
+Space Rats,8,1,1,9,"Leaping Lizards!  Some form of extraterrestrial rats have gotton on board!  They are running amok, and taking over the ship!  What could we possibly do?",space rats
