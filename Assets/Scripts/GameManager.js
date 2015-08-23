@@ -1,5 +1,8 @@
 ﻿#pragma strict
 
+import System.Collections.Generic;
+import System.Linq;
+
 public var SolutionsListBox : GameObject;
 public var ProblemsListBox : GameObject;
 public var ListItemPrefab : GameObject;
@@ -29,12 +32,8 @@ public function DoTitle() {
 
 private function BuildList(file, listbox : GameObject) {
   var rows = GameData.GetRows(file);
-  for (var row : Dictionary.<String, String> in rows) {
-    var listItem = Instantiate(ListItemPrefab) as GameObject;
-    listItem.transform.SetParent(listbox.transform.GetChild(0), false);
-    var item = listItem.GetComponent(ListItem);
 
-    item.fields['description'].text = row['name'];
-    item.fields['quantity'].text = '500';
-  }
+  var listboxComponent = listbox.GetComponent(ListBox);
+  var keys = rows.Select(function(r) { return r['name'] || ''; }).ToList();
+  listboxComponent.AddItems(rows, keys);
 }

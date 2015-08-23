@@ -15,3 +15,13 @@ function Awake () {
     }
   }
 }
+
+function Get(key) : String {
+  return fields.ContainsKey(key) ? fields[key].text : null;
+}
+
+function Set(key, value) {
+  if (fields.ContainsKey(key)) {
+    fields[key].text = value;
+  }
+}

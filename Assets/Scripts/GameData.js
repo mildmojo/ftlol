@@ -8,7 +8,7 @@ import System.Linq;
 //   var firstItemName = problems[0]['Name'];
 
 class GameData {
-  public static var Files = new Dictionary.<String, Array>();
+  public static var Files = new Dictionary.<String, List.<Dictionary.<String, String> > >();
 
   public static function Load(file : String) {
     var csv = Resources.Load(file) as TextAsset;
@@ -16,7 +16,7 @@ class GameData {
     var colNames = new Array();
     file = file.ToLower();
 
-    Files[file] = new Array();
+    Files[file] = new List.<Dictionary.<String, String> >();
 
     // Each row
     for (var i = 0; i < grid.GetLength(0); i++) {
@@ -40,7 +40,7 @@ class GameData {
       if (i > 0 && row[colNames[0]] != null && row[colNames[0]] != '') {
 // var keys = String.Join(', ', row.Keys.Select(function(n) { return n.ToString(); }).ToArray());
 // Debug.Log('PUSHING row with keys ' + keys);
-        Files[file].Push(row);
+        Files[file].Add(row);
       }
     }
   }
