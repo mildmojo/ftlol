@@ -29,10 +29,10 @@ public class CSVReader : MonoBehaviour
   static public void DebugOutputGrid(string[,] grid)
   {
     string textOutput = "";
-    for (int y = 0; y < grid.GetUpperBound(1); y++) {
-      for (int x = 0; x < grid.GetUpperBound(0); x++) {
+    for (int y = 0; y < grid.GetUpperBound(0); y++) {
+      for (int x = 0; x < grid.GetUpperBound(1); x++) {
 
-        textOutput += grid[x,y];
+        textOutput += grid[y,x];
         textOutput += "|";
       }
       textOutput += "\n";
@@ -54,17 +54,17 @@ public class CSVReader : MonoBehaviour
     }
 
     // creates new 2D string grid to output to
-    string[,] outputGrid = new string[width + 1, lines.Length + 1];
+    string[,] outputGrid = new string[lines.Length + 1, width + 1];
     for (int y = 0; y < lines.Length; y++)
     {
       string[] row = SplitCsvLine( lines[y] );
       for (int x = 0; x < row.Length; x++)
       {
-        outputGrid[x,y] = row[x];
+        outputGrid[y,x] = row[x];
 
         // This line was to replace "" with " in my output.
         // Include or edit it as you wish.
-        outputGrid[x,y] = outputGrid[x,y].Replace("\"\"", "\"");
+        outputGrid[y,x] = outputGrid[y,x].Replace("\"\"", "\"");
       }
     }
 
