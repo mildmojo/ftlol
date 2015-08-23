@@ -4,7 +4,7 @@ import System.Collections.Generic;
 import System.Linq;
 
 public var SolutionsListBox : GameObject;
-public var ProblemsListBox : GameObject;
+public var StrategyListBox : GameObject;
 public var ListItemPrefab : GameObject;
 
 @System.NonSerialized
@@ -15,7 +15,6 @@ function Start () {
   GameData.Load('solutions');
   GameData.Load('problems');
   BuildList('solutions', SolutionsListBox);
-  BuildList('problems', ProblemsListBox);
 }
 
 function Update () {
