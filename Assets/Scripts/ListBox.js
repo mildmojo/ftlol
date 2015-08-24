@@ -25,10 +25,11 @@ public function AddItem(fields : Dictionary.<String, String>, key : String) {
   // Copy fields to list item
   for (var field in fields) {
     if (field.Key != null && field.Key != '') {
-Debug.Log('adding ' + field.Key + " - " + field.Value);
       item.Set(field.Key, field.Value);
     }
   }
+
+  BroadcastAdd(fields);
 }
 
 public function AddItems(rows : List.<Dictionary.<String, String> >) { AddItems(rows, new List.<String>()); }
@@ -60,7 +61,7 @@ public function GetItemData(key : String) {
 public function GetAllData() {
   var retval = new List.<Dictionary.<String, String> >();
   for (var item in items) {
-    var itemData = item.Value.GetAll();
+    var itemData = item.Value.GetComponent(ListItem).GetAll();
     retval.Add(itemData);
   }
   return retval;
@@ -81,19 +82,14 @@ public function SetSelectedItem(obj : GameObject) {
 public function RemoveItem(key : String) {
   key = key.ToLower();
   var item = GetItem(key);
-Debug.Log('removing key ' + key + ' for item ' + item);
-items.Keys.Select(function(n) { return n.ToString(); }).ToList().ForEach(function(n) {
-  Debug.Log('key: ' + n);
-});
 
   if (item) {
-item.Set('quantity', '0');
-Debug.Log('removing name ' + item.GetName() + ' (key ' + key + ')');
     items.Remove(key);
     if (selectedItem == item.gameObject) {
       selectedItem = null;
       BroadcastDeselect();
     }
+    BroadcastRemove(item.GetAll());
     Destroy(item.gameObject);
   }
 }
@@ -102,7 +98,20 @@ public function RemoveItem(key : int) {
   if (item) {
     items.Remove(item.GetName());
     if (selectedItem == item.gameObject) selectedItem = null;
+    BroadcastRemove(item.GetAll());
     Destroy(item.gameObject);
+  }
+}
+
+public function Clear() {
+  for (var item in items) {
+    Destroy(item.Value);
+  }
+  items.Clear();
+  BroadcastQuantityChanged();
+  if (selectedItem) {
+    selectedItem = null;
+    BroadcastDeselect();
   }
 }
 
@@ -121,7 +130,6 @@ public function SelectedItem() {
 function BroadcastSelect() {
   var listItem = selectedItem.GetComponent(ListItem);
   var key = listItem.GetName();
-Debug.Log('Getting data for item ' + key);
   var data = listItem.GetAll();
 
   for (var obj in BroadcastListeners) {
@@ -132,5 +140,23 @@ Debug.Log('Getting data for item ' + key);
 function BroadcastDeselect() {
   for (var obj in BroadcastListeners) {
     obj.BroadcastMessage('DeselectedItem', null, SendMessageOptions.DontRequireReceiver);
+  }
+}
+
+function BroadcastAdd(data : Dictionary.<String, String>) {
+  for (var obj in BroadcastListeners) {
+    obj.BroadcastMessage('AddedItem', data, SendMessageOptions.DontRequireReceiver);
+  }
+}
+
+function BroadcastRemove(data : Dictionary.<String, String>) {
+  for (var obj in BroadcastListeners) {
+    obj.BroadcastMessage('RemovedItem', data, SendMessageOptions.DontRequireReceiver);
+  }
+}
+
+public function BroadcastQuantityChanged() {
+  for (var obj in BroadcastListeners) {
+    obj.BroadcastMessage('QuantityChanged', SendMessageOptions.DontRequireReceiver);
   }
 }

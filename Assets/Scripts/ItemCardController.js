@@ -4,6 +4,10 @@ public var IconImage : Image;
 public var NameText : Text;
 public var DescriptionText : Text;
 
+function Start() {
+  DeselectedItem();
+}
+
 function SetItem(fields : Dictionary.<String, String>) {
   // Set icon.
   var imageFile = fields['image_path'];

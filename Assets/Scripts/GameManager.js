@@ -23,7 +23,7 @@ function Start () {
   problemDeck = new ShuffleDeck(GameData.GetRows('problems'));
   Reset();
   ScreenFader.Instance.FadeOut(0, function(){});
-  ScreenFader.Instance.FadeIn(0.5, function(){});
+  NextProblem();
 }
 
 function Reset() {
@@ -49,7 +49,10 @@ public function NextProblem() {
   // ComputeProblemScore();
   // ShowProblemResult();
   ScreenFader.Instance.FadeOut(0.5, function() {
-    ProblemCRT.SetItem(problemDeck.Draw());
+    var nextProblem = problemDeck.Draw();
+    ProblemCRT.SetItem(nextProblem);
+    StrategyListBox.GetComponent(ListBox).Clear();
+    OutcomeCRT.SetProblem(nextProblem);
     ScreenFader.Instance.FadeIn(0.5, function(){});
   });
 }
