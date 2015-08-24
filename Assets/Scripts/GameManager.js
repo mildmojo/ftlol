@@ -5,15 +5,28 @@ import System.Linq;
 
 public var SolutionsListBox : GameObject;
 public var StrategyListBox : GameObject;
-public var ListItemPrefab : GameObject;
+
+public var ProblemCRT : ProblemController;
+public var OutcomeCRT : OutcomeController;
+
+public var Scrim : CanvasGroup;
 
 @System.NonSerialized
 public var Instance : GameManager;
+
+var problemDeck : ShuffleDeck;
 
 function Start () {
   if (!Instance) Instance = this;
   GameData.Load('solutions');
   GameData.Load('problems');
+  problemDeck = new ShuffleDeck(GameData.GetRows('problems'));
+  Reset();
+  ScreenFader.Instance.FadeOut(0, function(){});
+  ScreenFader.Instance.FadeIn(0.5, function(){});
+}
+
+function Reset() {
   BuildList('solutions', SolutionsListBox);
 }
 
@@ -29,6 +42,16 @@ public function DoGame() {
 
 public function DoTitle() {
   Application.LoadLevel('Title');
+}
+
+public function NextProblem() {
+  // DisableUI();
+  // ComputeProblemScore();
+  // ShowProblemResult();
+  ScreenFader.Instance.FadeOut(0.5, function() {
+    ProblemCRT.SetItem(problemDeck.Draw());
+    ScreenFader.Instance.FadeIn(0.5, function(){});
+  });
 }
 
 private function BuildList(file, listbox : GameObject) {

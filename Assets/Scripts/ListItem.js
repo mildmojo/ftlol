@@ -5,6 +5,7 @@ import System.Linq;
 import UnityEngine.UI;
 
 var fields = new Dictionary.<String, Text>();
+var itemData = new Dictionary.<String, String>();
 var parentListBox : ListBox;
 
 function Awake () {
@@ -22,12 +23,12 @@ function Get(key : String) : String {
   return fields.ContainsKey(key) ? fields[key].text : null;
 }
 
+function GetName() : String {
+  return fields['name'].text.ToLower().Replace(' ', '_');
+}
+
 function GetAll() : Dictionary.<String, String> {
-  var retval = new Dictionary.<String, String>();
-  for (var pair in fields) {
-    retval[pair.Key.ToLower()] = pair.Value.text;
-  }
-  return retval;
+  return itemData;
 }
 
 function Set(key : String, value) {
@@ -36,6 +37,7 @@ function Set(key : String, value) {
   if (fields.ContainsKey(key)) {
     fields[key].text = strVal;
   }
+  itemData[key] = strVal;
 }
 
 public function SetParentListBox(lbox : ListBox) {

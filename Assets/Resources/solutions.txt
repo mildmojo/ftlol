@@ -1,10 +1,10 @@
 Name,Quantity,Red,Green,Blue,Yellow,Description,Image Path
-Cookies,25,1,1,1,1,"Some people say that a cookie is useless.  Generally they are right.  Yet, a thousand twigs will overcome even the mightiest of sticks.",cookie
-Flamethrower,1,1,1,1,6,What more is there to say?,flamethrower
-Fuel,1,1,1,1,4,"Very flamable.  In general, do not ingest.",fuel
-Furniture,1,1,6,1,1,Antique furniture from Earth.,furniture
-Kitten,1,4,1,5,1,"Cute, cuddly, who could harm the little guy?",kitten
-People,1,3,3,4,1,"These humans are in cryogenic sleep.  Frozen for years, someday to arive at the star system 'Ryan'.  Perhapes the most valuable asset on the...  Aw crap, I broke one!...  Again....",man
-Towel,1,4,1,1,1,Never leave home without it.,towel
-Water,1,5,1,1,1,Moist.  Very moist.,water
-Wire,1,8,1,1,1,"Copper is very pointy, so be carefull not to put your eye out.",wire
+Cookies,20000,1,1,1,1,"Some people say that a cookie is useless. Generally, they are right. Yet, a thousand twigs will overcome even the mightiest of sticks.",solutions/cookie
+Flamethrower,1,1,100,1000,5000,What more is there to say?,solutions/flamethrower
+Fuel,3,1,150,1,2000,"Very flammable. In general, do not ingest.",solutions/fuel
+Furniture,4,10,200,1,1,Antique furniture from Earth.,solutions/furniture
+Kitten,20,200,50,50,1,"Cute, cuddly, who could harm the little guy?",solutions/kitten
+People,20000,500,150,500,1,"These humans are in cryogenic sleep. Frozen for years, someday to arive at the star system 'Ryan'. Perhaps the most valuable asset on the... Aw crap, I broke one!... Again....",solutions/man
+Towel,300,1000,50,1,10,Never leave home without it.,solutions/towel
+Water,1,2000,150,1,1,Moist. Very moist.,solutions/water
+Wire,1,1,2,1000,1,"Copper is very pointy, so be careful not to put your eye out.",solutions/wire

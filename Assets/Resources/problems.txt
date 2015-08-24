@@ -1,8 +1,8 @@
 Name,Red,Green,Blue,Yellow,Description,Image Path
-Morton Invasion,1,10,1,1,"Egad!  It's a Morton Invasion ship!  Grab some cannons, and fire all we've got!",morton invasion
-Large Rock,1,10,1,1,Great Scotts!  There's a gigantic asteroid coming our way!  Maybe you can break it up by launching something at it...,large rock
-Rabbit Problem,1,1,5,1,Holy Zarquon's Singing Fish!  Someone has been chewing the computer wires!  You've got to complete the electrical circut somehow...  But with what?,rabbit problem
-Stupid Infernal Ship,6,1,1,1,Great Balls of Fire!  Literally.  The entire engine room is on fire!  Now what could you put this out with?..,stupid infernal ship
-Pig of Unusual Size,1,5,1,1,"Great Jehoshaphat!  Our ship flew into a humongous floating pig!  As a result, we have a rather large hole in the side of our ship...  What could we fill the hole with, I wonder?..",pig of unusual size
-Humongous Fungus,1,1,1,8,Criminy!  Some poisonous spores have gotton into the air!  And I hate mushrooms!,humongous fungus
-Space Rats,8,1,1,9,"Leaping Lizards!  Some form of extraterrestrial rats have gotton on board!  They are running amok, and taking over the ship!  What could we possibly do?",space rats
+Morton Invasion,-1,15000,-1,20000,"Egad! It's a Morton Invasion ship! Grab some cannons, and fire all we've got!",problems/morton invasion
+Large Rock,-1,20000,-1,5000,Great Scott! There's a gigantic asteroid coming our way!  Maybe you can break it up by launching something at it...,problems/large rock
+Rabbit Problem,-1,-1,1000,-1,Holy Zarquon's Singing Fish! Someone chewed the computer wires! Complete the circuit... but with what?,problems/rabbit problem
+Stupid Infernal Ship,2000,-1,-1,-1,Great Balls of Fire! Literally. The entire engine room is on fire! Now what could you put this out with?,problems/stupid infernal ship
+Pig of Unusual Size,-1,3000,-1,1500,"Great Jehoshaphat! Our ship flew into a humongous floating pig! Huge hole in the side of our ship! What could we fill the hole with, I wonder?",problems/pig of unusual size
+Humongous Fungus,-1,50000,-1,5000,Criminy! Some poisonous spores have gotton into the air! And I hate mushrooms!,problems/humongous fungus
+Space Rats,4000,-1,-1,2000,"Leaping Lizards! Extraterrestrial rats have gotten on board! They're running amok, taking over the ship! What can we do?",problems/space rat

@@ -29,7 +29,7 @@ class GameData {
         if (i == 0 && grid[i, j] != null) {
           // First row is column names
           var name = grid[i, j];
-          var lowerName = name.ToLower();
+          var lowerName = name.ToLower().Replace(' ', '_');
           colNames.push(lowerName);
         } else if (j < colNames.length) {
           row[colNames[j]] = grid[i, j];
