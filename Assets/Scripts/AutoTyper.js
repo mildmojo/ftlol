@@ -32,7 +32,8 @@ function StartTyping() {
     .setOnUpdate(function(val:float) {
       cGroup.alpha = val;
     }).setOnComplete(function() {
-      NextPanel.SetActive(true);
+      if (NextPanel) NextPanel.SetActive(true);
+      cGroup.alpha = 1.0;
       gameObject.SetActive(false);
     });
 }

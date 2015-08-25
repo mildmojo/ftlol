@@ -38,18 +38,18 @@ function SetItem(fields : Dictionary.<String, String>) {
 }
 
 function ShowResult(lastProblemScore, currentYear, shipLife, startYear, tripLength) {
-  OutroText.text = currentYear.ToString();
-  OutroText.text += "\n\nPROBLEM SOLVED: " + lastProblemScore;
-  OutroText.text += "\n\nETA: " + (startYear + tripLength) + " (" + (shipLife - tripLength).ToString() + " YEARS OF SHIP LIFE POST ARRIVAL)";
+  OutroText.text = "\n\nPROBLEM SOLVED: " + lastProblemScore;
+  OutroText.text += "\n\nEXTRA YEARS OF SHIP LIFE POST ARRIVAL: " + (shipLife - tripLength).ToString();
   OutroText.text += "\n\nENGAGING AUTOPILOT...";
   ProblemCard.SetActive(false);
   OutroCard.SetActive(true);
+  Debug.Log("showing " + OutroText.text);
 }
 
 function ShowSuccess(currentYear, tripLength, shipLife) {
   var extraLife = shipLife - tripLength;
   if (extraLife < 0) {
-    var deathYear = currentYear + extraLife;
+    var deathYear = "YEAR: " + (currentYear + extraLife).ToString();
     OutroText.text = deathYear.ToString();
     OutroText.text += "\n\nYOU DIDN'T MAKE IT";
     OutroText.text += "\n\nALL SOULS LOST";
@@ -57,7 +57,7 @@ function ShowSuccess(currentYear, tripLength, shipLife) {
     // Everyone died in `currentYear + extraLife`. You lost.
   } else {
     // You made it to the Ryan system with `extraLife` years to spare.
-    OutroText.text = currentYear.ToString();
+    OutroText.text = "YEAR: " + currentYear.ToString();
     OutroText.text += "\n\nYOU MADE IT TO THE RYAN SYSTEM WITH " + extraLife.ToString() + " YEARS TO SPARE";
     OutroText.text += "\n\nYOU MONSTER";
     OutroText.text += "\n\nRESTART?";
