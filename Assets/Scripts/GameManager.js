@@ -57,6 +57,11 @@ function Update () {
   if (Input.GetKeyDown(KeyCode.N)) {
     DoScore();
   }
+
+  if (Input.GetKeyDown(KeyCode.M)) {
+    var listener = Camera.main.GetComponent(AudioListener);
+    listener.volume = 1 - listener.volume;
+  }
 }
 
 public function DoReset() {
