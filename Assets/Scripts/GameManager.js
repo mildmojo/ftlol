@@ -14,7 +14,16 @@ public var Scrim : CanvasGroup;
 @System.NonSerialized
 public var Instance : GameManager;
 
-var problemDeck : ShuffleDeck;
+private var problemDeck : ShuffleDeck;
+
+private var lastProblemScore = '';
+private var shipLife : int;
+private var tripLength : int;
+private var startYear : int;
+private var currentYear : int;
+private var stops = new List.<int>();
+
+private var PENALTY_YEARS = 35;
 
 function Start () {
   if (!Instance) Instance = this;
@@ -28,12 +37,26 @@ function Start () {
 
 function Reset() {
   BuildList('solutions', SolutionsListBox);
+  shipLife = 482;
+  tripLength = 435;
+  startYear = 2415;
+  currentYear = 2415;
+
+  stops.Clear();
+  for (var i = 0; i < 6; i++) {
+    stops.Add(Mathf.Round(Random.Range(startYear, startYear + tripLength)));
+  }
+  stops.Sort();
 }
 
 function Update () {
   if (Input.GetKeyDown(KeyCode.Escape)) {
-    Application.Quit();
+    DoQuit();
   }
+}
+
+public function DoQuit() {
+  Application.Quit();
 }
 
 public function DoGame() {
@@ -44,16 +67,31 @@ public function DoTitle() {
   Application.LoadLevel('Title');
 }
 
+public function DoScore() {
+  DisableUI();
+  ComputeProblemScore();
+  ShowProblemResult(function() {
+    if (stops.Count == 0) {
+      currentYear = startYear + tripLength;
+      ProblemCRT.ShowSuccess(currentYear, tripLength, shipLife);
+    } else {
+      NextProblem();
+    }
+  });
+}
+
 public function NextProblem() {
-  // DisableUI();
-  // ComputeProblemScore();
-  // ShowProblemResult();
   ScreenFader.Instance.FadeOut(0.5, function() {
     var nextProblem = problemDeck.Draw();
     ProblemCRT.SetItem(nextProblem);
     StrategyListBox.GetComponent(ListBox).Clear();
     OutcomeCRT.SetProblem(nextProblem);
+    stops.RemoveAt(0);
+    currentYear = stops.Count > 0 ? stops.First() : startYear + tripLength;
+    ProblemCRT.Reset(currentYear);
+
     ScreenFader.Instance.FadeIn(0.5, function(){});
+    EnableUI();
   });
 }
 
@@ -63,4 +101,24 @@ private function BuildList(file, listbox : GameObject) {
   var listboxComponent = listbox.GetComponent(ListBox);
   var keys = rows.Select(function(r) { return r['name'] || ''; }).ToList();
   listboxComponent.AddItems(rows, keys);
+}
+
+function DisableUI() {
+  Scrim.blocksRaycasts = true;
+}
+
+function EnableUI() {
+  Scrim.blocksRaycasts = false;
+}
+
+function ComputeProblemScore() {
+  var score = OutcomeCRT.GetOutcomeScore();
+  if (score < 1.0) shipLife -= PENALTY_YEARS * score;
+  var year = stops.First();
+}
+
+function ShowProblemResult(func : System.Action) {
+  ProblemCRT.ShowResult(lastProblemScore, currentYear, shipLife, startYear, tripLength);
+  yield new WaitForSeconds(8);
+  func();
 }

@@ -2,15 +2,22 @@ import UnityEngine.UI;
 
 public var StrategyListBox : ListBox;
 public var SliderList : List.<Slider>;
+public var StatusOK : GameObject;
 
 private var problemData : Dictionary.<String, String> = null;
 private var attrNames = new List.<String>(['Red', 'Green', 'Blue', 'Yellow']);
 private var sliders = new Dictionary.<String, Slider>();
+private var currentScore : float;
 
 function Start() {
   for (var slider in SliderList) {
     sliders[slider.transform.name.ToLower()] = slider;
   }
+  Reset();
+}
+
+function Reset() {
+  currentScore = 0;
 }
 
 function SetProblem(fields : Dictionary.<String, String>) {
@@ -26,6 +33,8 @@ function RecalcOutcome() {
   var strategyData = StrategyListBox.GetAllData();
   var stratTotals = new Dictionary.<String, int>();
   // var stratStatus = new Dictionary.<String, float>();
+  var isSuccessful = false;
+  currentScore = 0;
 
   for (var attr in attrNames) {
     attr = attr.ToLower();
@@ -44,7 +53,7 @@ function RecalcOutcome() {
 // Debug.Log('recalc, slider keys: ' + String.Join(', ', keys));
     var slider = sliders[attr];
     // stratStatus[attr] = attrPct;
-Debug.Log(attr + ' (' + stratTotals[attr] + '): ' + attrPct * slider.maxValue);
+// Debug.Log(attr + ' (' + stratTotals[attr] + '): ' + attrPct * slider.maxValue);
 //     var initialValue = slider.value;
 //     var tween = LeanTween.value(slider.gameObject, initialValue, attrPct * slider.maxValue, 0.5);
 //     tween.setOnUpdate( function( val:float ){
@@ -52,8 +61,15 @@ Debug.Log(attr + ' (' + stratTotals[attr] + '): ' + attrPct * slider.maxValue);
 //       slider.value = val;
 // if (val > 0) Debug.Log(attr + ' actual value: ' + slider.value);
       slider.value = attrPct * slider.maxValue;
+
+      if (attrPct >= 1.0) isSuccessful = true;
+      currentScore = Mathf.Max(attrPct, currentScore);
     // });
   }
+
+  StatusOK.SetActive(isSuccessful);
 }
 
-
+function GetOutcomeScore() {
+  return currentScore;
+}

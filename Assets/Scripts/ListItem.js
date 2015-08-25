@@ -47,7 +47,7 @@ public function SetParentListBox(lbox : ListBox) {
 public function Select() {
   parentListBox.SetSelectedItem(gameObject);
   GetComponent(Image).fillCenter = true;
-  Debug.Log('Selected!~');
+  // Debug.Log('Selected!~');
 }
 
 // Called by parent list box when selection changes
