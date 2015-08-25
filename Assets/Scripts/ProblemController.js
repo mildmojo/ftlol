@@ -37,7 +37,7 @@ function SetItem(fields : Dictionary.<String, String>) {
   DescriptionText.text = fields['description'];
 }
 
-function ShowResult(lastProblemScore, currentYear, shipLife, startYear, tripLength) {
+function ShowResult(lastProblemScore, currentYear:int, shipLife:int, startYear:int, tripLength:int) {
   OutroText.text = "\n\nPROBLEM SOLVED: " + lastProblemScore;
   OutroText.text += "\n\nEXTRA YEARS OF SHIP LIFE POST ARRIVAL: " + (shipLife - tripLength).ToString();
   OutroText.text += "\n\nENGAGING AUTOPILOT...";
@@ -46,7 +46,7 @@ function ShowResult(lastProblemScore, currentYear, shipLife, startYear, tripLeng
   Debug.Log("showing " + OutroText.text);
 }
 
-function ShowSuccess(currentYear, tripLength, shipLife) {
+function ShowSuccess(currentYear : int, tripLength : int, shipLife : int) {
   var extraLife = shipLife - tripLength;
   if (extraLife < 0) {
     var deathYear = "YEAR: " + (currentYear + extraLife).ToString();
