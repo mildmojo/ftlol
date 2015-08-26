@@ -991,6 +991,7 @@ GameObject:
   - 114: {fileID: 523819980}
   - 114: {fileID: 523819979}
   - 82: {fileID: 523819982}
+  - 114: {fileID: 523819983}
   m_Layer: 5
   m_Name: QuitButton
   m_TagString: Untagged
@@ -1175,6 +1176,17 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!114 &523819983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 523819977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a84fca4841a09d42b63704b89ad8099, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &542557910
 GameObject:
   m_ObjectHideFlags: 0
@@ -1429,7 +1441,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 5703332c9a31f55478d3d42680e648c8, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: .360000014
+  m_Volume: .560000002
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -3684,7 +3696,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: babf65a3e752db64097843cf35a0a130, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: .178000003
+  m_Volume: .209999993
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -4041,7 +4053,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 77cce52bad466e64e9a0f997510558e8, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: .356000006
+  m_Volume: .289999992
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -5707,7 +5719,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: FTLOL 1.0
+  m_Text: FTLOL 1.1
 --- !u!222 &2073472112
 CanvasRenderer:
   m_ObjectHideFlags: 0

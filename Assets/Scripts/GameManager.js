@@ -65,9 +65,10 @@ function Update () {
 }
 
 public function DoReset() {
-  Reset();
-  ScreenFader.Instance.FadeOut(0, function(){});
-  NextProblem();
+  ScreenFader.Instance.FadeOut(0.5, function(){
+    Reset();
+    NextProblem();
+  });
 }
 
 public function DoQuit() {
@@ -116,6 +117,7 @@ private function BuildList(file, listbox : GameObject) {
 
   var listboxComponent = listbox.GetComponent(ListBox);
   var keys = rows.Select(function(r) { return r['name'] || ''; }).ToList();
+  listboxComponent.Clear();
   listboxComponent.AddItems(rows, keys);
 }
 
@@ -129,7 +131,8 @@ function EnableUI() {
 
 function ComputeProblemScore() {
   var score = OutcomeCRT.GetOutcomeScore();
-  if (score < 1.0) shipLife -= PENALTY_YEARS * Mathf.Clamp(1/(score+0.1), 0.0, 1.0);
+  score = Mathf.Clamp(score, 0.0, 1.0);
+  if (score < 1.0) shipLife -= PENALTY_YEARS * (1.0 - score);
   if (score > 0.99) {
     lastProblemScore = 'A+';
   } else if (score > 0.9) {
@@ -146,7 +149,6 @@ function ComputeProblemScore() {
 }
 
 function ShowProblemResult(func : System.Action) {
-
   ProblemCRT.ShowResult(lastProblemScore, currentYear, shipLife, startYear, tripLength);
   yield new WaitForSeconds(10);
   func();

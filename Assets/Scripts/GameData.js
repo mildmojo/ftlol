@@ -45,8 +45,10 @@ class GameData {
   }
 
   public static function GetRows(file) {
-    return Files[file];
+    return CopyFile(Files[file]);
   }
 
-
+  private static function CopyFile(rows : List.<Dictionary.<String, String> >) {
+    return rows.Select(function(r) { return new Dictionary.<String, String>(r); }).ToList();
+  }
 }
