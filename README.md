@@ -34,28 +34,28 @@ We had a lot more in mind for this game, but hit a number of serious issues on t
 
 Made in 72 hours by the FTLOL team:
 
-GAME DESIGN:
-============
-Bill Adams
+#### GAME DESIGN:
+
+Bill Adams  
+Drew Van Camp  
+Jason Mize  
+Lucien Mize  
+mildmojo  
+MOONBASETOM  
+
+#### CODE:
+
+mildmojo 
+
+#### VISUAL ART:
+
+Bill Adams  
+Lucien Mize  
+
+#### MUSIC & SOUND:
+
 Drew Van Camp
-Jason Mize
-Lucien Mize
-mildmojo
-MOONBASETOM
 
-CODE:
-=====
-mildmojo
+#### TEAM MALCONTENT:
 
-VISUAL ART:
-============
-Bill Adams
-Lucien Mize
-
-MUSIC & SOUND:
-================
-Drew Van Camp
-
-TEAM MALCONTENT:
-==================
 MOONBASETOM
